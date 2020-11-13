@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
     console.log("hello");
   });
  
-
+//setting the header
   res.setHeader("Content-Type", "text/html");
  
   let path = "./views/";
