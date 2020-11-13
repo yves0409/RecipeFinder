@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="details">
+      
+      <div class="details">
+         <h3>Step by step</h3> <span><strong>Preparation time :</strong><%= blog.preptime %></span><br/><span><strong>Cook time:</strong> <%= blog.cooktime %></span>
+       
+       <hr>
+       <h4>* What you need</h4>
+       <br>
+     <p><%= blog.ingredients %></p>
+
+      
+      <hr>
+      <h4>* How you do it</h4>
+      <br>
+      <p><%= blog.recipes %></p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga commodi facilis veniam molestiae, autem officiis error quo enim reiciendis consequatur assumenda laudantium dolor suscipit, culpa sequi repellat quisquam! Dolore, beatae!</p>
+
+   </div>
+   
+
+    <%- include("./partials/footer.ejs") %> 
+</body>
+</html>

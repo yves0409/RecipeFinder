@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="create-blog">
+      <form action="/blogs" method="POST">
+        <label for="category">Category</label>
+        <input type="category" id="category" name="category" required />
+        <label for="preptime">Preparation time</label>
+        <input type="preptime" id="preptime" name="preptime" required />
+        <label for="cooktime">Cook time</label>
+        <input type="cooktime" id="cooktime" name="cooktime" required />
+        <label for="title">Recipe Name</label>
+        <input type="text" id="title" name="title" required />
+        <label for="snippt">Brief description</label>
+        <input type="text" id="snippet" name="snippet" required />
+        <label for="imgURL">Add img</label>
+        <input type="text" id="imgURL" name="imgURL" required />
+        <label for="ingredients">Add ingredients</label>
+        <input type="text" id="ingredients" name="ingredients" required />
+        <label for="body">Blog body</label>
+        <textarea id="body" name="body" required></textarea>
+        <label for="recipes">How to make it</label>
+        <textarea id="recipes" name="recipes" required></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

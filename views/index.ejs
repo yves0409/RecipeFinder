@@ -1,0 +1,61 @@
+<html lang="en">
+  <!-- note that the head partial is out of the body  -->
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <!-- nav partial -->
+    <%- include("./partials/nav.ejs") %>
+
+    <!-- search field -->
+    <input
+      type="text"
+      id="myInput"
+      onkeyup="myFunction()"
+      placeholder="Search for recipe.."
+      title="Type in a name"
+    />
+    <br />
+    <br />
+
+    <!-- body content -->
+    <h2>Our recipes</h2>
+    <ul class="blogs content" id="myUL">
+      <!-- <img alt="Poster" id="poster" src="/images/eggCroissant.png" /> -->
+      <% if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+      <li>
+        <a class="single" href="/blogs/<%= blog._id %>">
+          <img src="<%=blog.imgURL %>" alt="" width="60px" height="50px" />
+          <h3 class="title"><%= blog.title %></h3>
+          <p class="snippet"><%= blog.snippet %></p>
+          <p>Category : <%= blog.category %></p>
+        </a>
+      </li>
+      <% }) %> <% } else { %>
+      <p>There are no blogs to display...</p>
+      <% } %>
+    </ul>
+
+    <!-- footer ejs partial -->
+    <%- include("./partials/footer.ejs") %>
+
+    <!-- JS for search function -->
+    <script>
+      function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
